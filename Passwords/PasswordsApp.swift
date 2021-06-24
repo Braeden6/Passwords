@@ -11,7 +11,19 @@ import SwiftUI
 struct PasswordsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            ContentView(passwords: [] as! [Password])
         }
     }
+}
+
+
+func getPasswords() {
+    let defaults = UserDefaults.standard
+    var passwords = defaults.object(forKey: "password")
+    print(passwords)
+    if passwords == nil {
+        passwords = []
+    }
+    // return passwords as! [Password]
 }

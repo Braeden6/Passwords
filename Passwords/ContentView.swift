@@ -20,11 +20,8 @@ struct Password {
     }
 }
 
-
-
-
 struct ContentView: View {
-    @State var passwords: [Password] = []
+    @State var passwords: [Password]
     @State var username: String = ""
     @State var password: String = ""
     @State var description: String = ""
@@ -38,18 +35,30 @@ struct ContentView: View {
             .frame(width: 200, height: 20, alignment: .center)
         TextField("Identifier", text: $identifier)
             .frame(width: 200, height: 20, alignment: .center)
+        
+        
         Button(action: {
             let newPass: Password = Password( username: username, password: password, description: description ,identifier: identifier)
             passwords.append(newPass)
+            print(passwords)
         }) {
             Text("Enter")
         }
+        Button(action :{
+            let defaults = UserDefaults.standard
+            defaults.set([["test":"something", "test2":"somthingElse"], ["test":"something", "test2":"somthingElse"]], forKey: "passwords")
+        }) {
+            Text("Save Passowrd")
+        }
         .frame(width: 200, height: 20, alignment: .center)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        Button(action :{
+            let defaults = UserDefaults.standard
+            var passwords = defaults.object(forKey: "passwords")
+            print(passwords)
+            
+        }) {
+            Text("Load Passowrd")
+        }
+        .frame(width: 200, height: 20, alignment: .center)
     }
 }
