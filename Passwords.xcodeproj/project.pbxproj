@@ -11,6 +11,8 @@
 		FE6CC8942684346100ED5C1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6CC8932684346100ED5C1F /* ContentView.swift */; };
 		FE6CC8962684346200ED5C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6CC8952684346200ED5C1F /* Assets.xcassets */; };
 		FE6CC8992684346200ED5C1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6CC8982684346200ED5C1F /* Preview Assets.xcassets */; };
+		FE771CBE26882A580046BF91 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = FE771CBD26882A580046BF91 /* Swifter */; };
+		FE771CC02688333C0046BF91 /* getIPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE771CBF2688333C0046BF91 /* getIPAddress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,7 @@
 		FE6CC8932684346100ED5C1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FE6CC8952684346200ED5C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE6CC8982684346200ED5C1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FE771CBF2688333C0046BF91 /* getIPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getIPAddress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +29,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE771CBE26882A580046BF91 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE5C33F92687F7940026AB2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE6CC8852684346100ED5C1F = {
 			isa = PBXGroup;
 			children = (
 				FE6CC8902684346100ED5C1F /* Passwords */,
 				FE6CC88F2684346100ED5C1F /* Products */,
+				FE5C33F92687F7940026AB2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +63,7 @@
 		FE6CC8902684346100ED5C1F /* Passwords */ = {
 			isa = PBXGroup;
 			children = (
+				FE771CBF2688333C0046BF91 /* getIPAddress.swift */,
 				FE6CC8912684346100ED5C1F /* PasswordsApp.swift */,
 				FE6CC8932684346100ED5C1F /* ContentView.swift */,
 				FE6CC8952684346200ED5C1F /* Assets.xcassets */,
@@ -83,6 +96,9 @@
 			dependencies = (
 			);
 			name = Passwords;
+			packageProductDependencies = (
+				FE771CBD26882A580046BF91 /* Swifter */,
+			);
 			productName = Passwords;
 			productReference = FE6CC88E2684346100ED5C1F /* Passwords.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +127,9 @@
 				Base,
 			);
 			mainGroup = FE6CC8852684346100ED5C1F;
+			packageReferences = (
+				FE771CBC268829660046BF91 /* XCRemoteSwiftPackageReference "swifter" */,
+			);
 			productRefGroup = FE6CC88F2684346100ED5C1F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE771CC02688333C0046BF91 /* getIPAddress.swift in Sources */,
 				FE6CC8942684346100ED5C1F /* ContentView.swift in Sources */,
 				FE6CC8922684346100ED5C1F /* PasswordsApp.swift in Sources */,
 			);
@@ -343,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE771CBC268829660046BF91 /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE771CBD26882A580046BF91 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE771CBC268829660046BF91 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FE6CC8862684346100ED5C1F /* Project object */;
 }

@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Swifter
 
-struct PasswordInfo: Codable {
+
+struct PasswordInfo: Codable, Identifiable {
+    var id = UUID()
     var identifier: String
     var username: String
     var password: String
@@ -20,8 +23,11 @@ struct PasswordInfo: Codable {
     }
 }
 
-class PasswordList {
-    var list: [PasswordInfo] = getSavedPasswordList()
+
+
+
+class PasswordList: ObservableObject {
+    @Published var list: [PasswordInfo] = getSavedPasswordList()
     
     func addCopyOfPasswordInfo(passwordInfo: PasswordInfo) {
         var newPassInfo = PasswordInfo()
@@ -35,8 +41,12 @@ class PasswordList {
 
 struct ContentView: View {
     @State var passwordInfo = PasswordInfo()
-    @State var passwordList = PasswordList()
+    @StateObject  var passwordList = PasswordList()
+    @State var server: HttpServer = serverStartup()
     var body: some View {
+        List(passwordList.list) { passwordInfo in
+            Text("Your password is: \(passwordInfo.password)")
+        }
         let usernameTF: TextField = TextField("Username", text: $passwordInfo.username)
         usernameTF.frame(width: 200, height: 20, alignment: .center)
         let passwordTF: TextField = TextField("Password", text: $passwordInfo.password)
@@ -46,7 +56,6 @@ struct ContentView: View {
         let identifierTF: TextField = TextField("Identifier", text: $passwordInfo.identifier)
         identifierTF.frame(width: 200, height: 20, alignment: .center)
         
-        
         Button(action: {
             buttonEnterCallback(passwordList: passwordList, passwordInfo: &passwordInfo)
             savePasswordList(list: passwordList.list)
@@ -55,18 +64,18 @@ struct ContentView: View {
         }
         
         Button(action :{
-            print(getSavedPasswordList())
-        }) {
-            Text("Load Password")
-        }
-        .frame(width: 200, height: 20, alignment: .center)
-        
-        Button(action :{
             savePasswordList(list: [])
+            passwordList.list = []
         }) {
             Text("Reset List")
         }
         .frame(width: 200, height: 20, alignment: .center)
+        
+        
+        Button(action: {
+            print(UIDevice.current.getIP()) }) {
+            Text("Get IP")
+        }
         
         
         
@@ -101,3 +110,16 @@ func getSavedPasswordList() -> [PasswordInfo] {
     return []
 }
 
+
+func serverStartup() -> HttpServer{
+    let server = HttpServer()
+    server[""] = scopes {
+        html {
+          body {
+            h1 { inner = "Your password will show up here" }
+          }
+        }
+      }
+    try! server.start()
+    return server
+}
