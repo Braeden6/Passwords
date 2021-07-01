@@ -14,7 +14,7 @@ struct ContentView: View {
     @State var passwordInfo = PasswordInfo()
     @StateObject  var passwordList = PasswordList()
     @State var server: HttpServer = serverInit()
-    @State var ipAddress = UIDevice.current.getIP()
+    @State var ipAddress = getWiFiAddress()
     @State var show = false
     
     var body: some View {
@@ -92,6 +92,16 @@ func serverInit() -> HttpServer{
           }
         }
       }
+    server["dumbass"] = scopes {
+        html {
+            body {
+            h1 { inner = "Amir is a fucking dumbass" }
+          }
+        }
+      }
+    server["test"] = { request in
+        return HttpResponse.ok(.text("<html><body> <button type='button'>Click Me!</button> </body></html>"))
+    }
     return server
 }
 
