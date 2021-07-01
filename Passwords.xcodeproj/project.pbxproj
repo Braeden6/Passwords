@@ -13,6 +13,7 @@
 		FE6CC8992684346200ED5C1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6CC8982684346200ED5C1F /* Preview Assets.xcassets */; };
 		FE6E24F32689858D0014314C /* PasswordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6E24F22689858D0014314C /* PasswordList.swift */; };
 		FE6E24F5268986EA0014314C /* PasswordOptionsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6E24F4268986EA0014314C /* PasswordOptionsPopup.swift */; };
+		FE72B183268D87A5008747E6 /* getHTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE72B182268D87A5008747E6 /* getHTMLString.swift */; };
 		FE771CBE26882A580046BF91 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = FE771CBD26882A580046BF91 /* Swifter */; };
 		FE771CC02688333C0046BF91 /* getIPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE771CBF2688333C0046BF91 /* getIPAddress.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		FE6CC8982684346200ED5C1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE6E24F22689858D0014314C /* PasswordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordList.swift; sourceTree = "<group>"; };
 		FE6E24F4268986EA0014314C /* PasswordOptionsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordOptionsPopup.swift; sourceTree = "<group>"; };
+		FE72B182268D87A5008747E6 /* getHTMLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getHTMLString.swift; sourceTree = "<group>"; };
 		FE771CBF2688333C0046BF91 /* getIPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getIPAddress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				FE6CC8932684346100ED5C1F /* ContentView.swift */,
 				FE6CC8952684346200ED5C1F /* Assets.xcassets */,
 				FE6CC8972684346200ED5C1F /* Preview Content */,
+				FE72B182268D87A5008747E6 /* getHTMLString.swift */,
 			);
 			path = Passwords;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE72B183268D87A5008747E6 /* getHTMLString.swift in Sources */,
 				FE6E24F5268986EA0014314C /* PasswordOptionsPopup.swift in Sources */,
 				FE6E24F32689858D0014314C /* PasswordList.swift in Sources */,
 				FE771CC02688333C0046BF91 /* getIPAddress.swift in Sources */,

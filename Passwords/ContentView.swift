@@ -85,13 +85,6 @@ struct ContentView: View {
 
 func serverInit() -> HttpServer{
     let server = HttpServer()
-    server[""] = scopes {
-        html {
-            body {
-            h1 { inner = "Your password will show up here" }
-          }
-        }
-      }
     server["dumbass"] = scopes {
         html {
             body {
@@ -99,10 +92,24 @@ func serverInit() -> HttpServer{
           }
         }
       }
-    server["test"] = { request in
-        return HttpResponse.ok(.text("<html><body> <button type='button'>Click Me!</button> </body></html>"))
+    server[""] = { request in
+        return HttpResponse.ok(.text(getHTMLString(password: "somestupidpassword")))
     }
     return server
+}
+
+
+func getHTML() -> String {
+    var html = "test"
+    if let htmlPathURL = Bundle.main.url(forResource: "server", withExtension: "html"){
+        do {
+            html = try String(contentsOf: htmlPathURL, encoding: .utf8)
+        } catch  {
+            print("Unable to get the file.")
+        }
+    }
+
+    return html
 }
 
 

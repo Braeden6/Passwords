@@ -1,1 +1,27 @@
+<style>
+    input {
+        width: 10px;
+        height: 10px;
+    }
+    </style>
+
+
+<script>
+    function startup() {
+        document.getElementById('btn').addEventListener('click', function() {
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+    });
+}
+</script>
+
+
+<html>
+    <body onload='startup()'>
+        <input type="input" value="1234qwdeasdas" id="myInput" size="1" >
+        <button id='btn' type='button'> Click Here</button>
+    </body>
+</html>
 
