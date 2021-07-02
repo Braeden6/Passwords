@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-
+import Swifter
 
 class PasswordList: ObservableObject {
     @Published var list: [PasswordInfo]!
@@ -77,28 +77,41 @@ struct PasswordInfo: Codable, Identifiable, Hashable {
     }
 }
 
-
-
-struct PasswordInfoRow: View {
-    var passwordInfo: PasswordInfo
-    var list: PasswordList
+struct PasswordRow: View {
+    let item: PasswordInfo
+    let list: PasswordList
+    let server: HttpServer
+    
+    init(item: PasswordInfo, list: PasswordList){
+        self.item = item
+        self.list = list
+        self.server = serverInit(htmlString: getHTMLString(password: item.password))
+    }
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        HStack {
-            Text("ID: \(passwordInfo.identifier)")
+        VStack {
+            Text("ID: \(item.identifier)")
+            Text("Username: \(item.username)")
+            Text("Password: \(item.password)")
+            Text("Description: \(item.description)")
+            
             Button(action :{
-                if let i = list.list.firstIndex(of: passwordInfo) {
+                presentationMode.wrappedValue.dismiss()
+                if let i = list.list.firstIndex(of: item) {
                     list.deleteItem(index: i)
-                }
-            }) { Text("Delete") }
+               }
+            })
+            { Text("Delete") }
             
-            Divider()
+            Button(action :{ try! server.start() })
+            { Text("Server Start") }
             
-            Button(action :{
-                
-            }) {
-                Text("Edit")
-            }
+            Button(action :{ server.stop() })
+            { Text("Stop Server") }
+            
+            
+            
         }
     }
 }

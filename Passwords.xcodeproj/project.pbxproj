@@ -72,11 +72,11 @@
 				FE771CBF2688333C0046BF91 /* getIPAddress.swift */,
 				FE6E24F4268986EA0014314C /* PasswordOptionsPopup.swift */,
 				FE6E24F22689858D0014314C /* PasswordList.swift */,
+				FE72B182268D87A5008747E6 /* getHTMLString.swift */,
 				FE6CC8912684346100ED5C1F /* PasswordsApp.swift */,
 				FE6CC8932684346100ED5C1F /* ContentView.swift */,
 				FE6CC8952684346200ED5C1F /* Assets.xcassets */,
 				FE6CC8972684346200ED5C1F /* Preview Content */,
-				FE72B182268D87A5008747E6 /* getHTMLString.swift */,
 			);
 			path = Passwords;
 			sourceTree = "<group>";
